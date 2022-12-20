@@ -35,5 +35,5 @@ services:
     ports:
       - "80:80"
 volumes:
-  - db_vol: {}
-  - app_vol: {}
+  db_vol: {}
+  app_vol: {}
