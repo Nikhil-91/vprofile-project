@@ -7,7 +7,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=admin123
     volumes:
-      - db_vol: /var/lib/mysql
+      - db_vol:/var/lib/mysql
 
   
   vpromc01:
