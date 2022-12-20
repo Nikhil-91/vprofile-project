@@ -29,6 +29,8 @@ services:
       - "8080:8080"
     volumes:
       - app_vol:/usr/local/tomcat/webapps
+    environment:
+      - CATALINA_OPTS="-Xms512M -Xmx512M"
 
   vproweb:
     image: nikhildevops38/vproweb:v1
