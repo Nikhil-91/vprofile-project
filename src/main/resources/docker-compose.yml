@@ -1,0 +1,39 @@
+version: '3'
+services:
+  vprodb:
+    image: nikhildevops38/vprodb:v1
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin123
+    volumes:
+      - db_vol: /var/lib/mysql
+
+  
+  vpromc01:
+    image: memcached
+    ports:
+      - "11211:11211"
+
+  vprormq01:
+    image: rabbitmq
+    ports:
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+
+  vproapp:
+    image: nikhildevops38/vproapp:v1
+    ports:
+      - "8080:8080"
+    volumes:
+      - app_vol:/usr/local/tomcat/webapps
+
+  vproweb:
+    image: nikhildevops38/vproweb:v1
+    ports:
+      - "80:80"
+volumes:
+  - db_vol: {}
+  - app_vol: {}
