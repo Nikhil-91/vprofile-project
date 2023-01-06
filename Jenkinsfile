@@ -79,6 +79,7 @@ pipeline {
                waitForQualityGate abortPipeline: true
             }
           }
+          }
 
           stage('BUILD DOCKER IMAGE'){
             steps{
@@ -110,4 +111,3 @@ pipeline {
         
         }
     }
-}
